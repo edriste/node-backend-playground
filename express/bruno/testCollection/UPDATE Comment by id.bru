@@ -1,0 +1,22 @@
+meta {
+  name: UPDATE Comment by id
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:{{API_PORT}}/comments/{{id}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date": "2000-01-01T00:00:00Z"
+  }
+}
+
+vars:pre-request {
+  API_PORT: 3000
+  id: 667da68d6c530a86230b84f2
+}

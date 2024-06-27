@@ -1,0 +1,24 @@
+meta {
+  name: POST Comment
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:{{API_PORT}}/comments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "TestComment",
+    "email": "TestEMail",
+    "movie_id": "573a1390f29313caabcd42e8",
+    "text": "Hello this is a test comment"
+  }
+}
+
+vars:pre-request {
+  API_PORT: 3000
+}

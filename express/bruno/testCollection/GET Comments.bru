@@ -1,0 +1,15 @@
+meta {
+  name: GET Comments
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:{{API_PORT}}/comments/
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  API_PORT: 3000
+}

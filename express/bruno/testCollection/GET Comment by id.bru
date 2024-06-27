@@ -1,0 +1,16 @@
+meta {
+  name: GET Comment by id
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:{{API_PORT}}/comments/{{id}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  API_PORT: 3000
+  id: 667da68d6c530a86230b84f2
+}
