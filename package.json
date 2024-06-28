@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "prettierApply": "npx prettier . --write",
+    "prettierCheck": "npx prettier . --check"
   },
   "keywords": [],
   "author": "",

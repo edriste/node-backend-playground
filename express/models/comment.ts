@@ -7,6 +7,6 @@ export default class Comment {
     public email: string,
     public movie_id: ObjectId,
     public text: string,
-    public date: Date
+    public date: Date,
   ) {}
 }

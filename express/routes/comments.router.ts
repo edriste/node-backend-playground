@@ -56,7 +56,7 @@ commentsRouter.post("/", async (req: Request, res: Response) => {
       ? res
           .status(201)
           .send(
-            `Successfully created a new comment with id ${result.insertedId}`
+            `Successfully created a new comment with id ${result.insertedId}`,
           )
       : res.status(500).send("Failed to create a new comment.");
   } catch (error) {

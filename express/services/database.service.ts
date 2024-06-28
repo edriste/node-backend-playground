@@ -54,20 +54,20 @@ export async function getCommentsCollection(): Promise<mongoDB.Collection> {
   try {
     const db: mongoDB.Db = await connectToDatabase();
     const commentsCollection: mongoDB.Collection = db.collection(
-      process.env.COMMENTS_COLLECTION_NAME
+      process.env.COMMENTS_COLLECTION_NAME,
     );
     logger.info(
-      `Connected to collection '${commentsCollection.collectionName}'`
+      `Connected to collection '${commentsCollection.collectionName}'`,
     );
     return commentsCollection;
   } catch (error) {
     logger.error(
       `Failed to get collection '${process.env.COMMENTS_COLLECTION_NAME}'`,
-      error
+      error,
     );
     // Rethrow to notify the caller of the collection connection failure
     throw new Error(
-      `Collection '${process.env.COMMENTS_COLLECTION_NAME}' not found`
+      `Collection '${process.env.COMMENTS_COLLECTION_NAME}' not found`,
     );
   }
 }

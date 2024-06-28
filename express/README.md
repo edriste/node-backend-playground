@@ -5,12 +5,12 @@ FYI there is also a package called [express-generator-typescript](https://github
 
 ## Setup
 
- 1. Set up a [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) cluster
- 2. Install [Atlas CLI](https://www.mongodb.com/docs/atlas/cli/current/install-atlas-cli/). 
- 3. Load the sample data into a database in your MongoDB Atlas cluster using Atlas CLI. You can follow the tutorial [here](https://www.mongodb.com/docs/atlas/sample-data/) for this step.
- 4. Create a `.env` file next to the `.env.example` and copy the contents of `.env.example` into it.
- 5. Fill out `DB_CONNECTION_STRING` in the `.env` file.
- 6. Run the application with `npm run dev`. This should start a server on the specified port from your `.env` file.
+1.  Set up a [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) cluster
+2.  Install [Atlas CLI](https://www.mongodb.com/docs/atlas/cli/current/install-atlas-cli/).
+3.  Load the sample data into a database in your MongoDB Atlas cluster using Atlas CLI. You can follow the tutorial [here](https://www.mongodb.com/docs/atlas/sample-data/) for this step.
+4.  Create a `.env` file next to the `.env.example` and copy the contents of `.env.example` into it.
+5.  Fill out `DB_CONNECTION_STRING` in the `.env` file.
+6.  Run the application with `npm run dev`. This should start a server on the specified port from your `.env` file.
 
 You can now call the API using an API platform like Postman, Insomnia or Bruno. I am using Bruno personally and have added my collection to the project. If you have changed the port for the application, make sure to change the variable for the Bruno requests accordingly.
 
