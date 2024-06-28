@@ -29,8 +29,5 @@ Beware that if you use the Bruno collection, you will have to adjust the URLs fr
 - Connect Bruno collection to .env
 - Extend API routes to handle data transformation and validation
 - Error handling and timeouts for routes
-- Add DevOps tools like Husky etc.
-- Testing
-- Logging
 - Security
 - Docker
