@@ -1,7 +1,21 @@
 # node-backend-playground
-playground for node backend applications
+this is a playground for node backend applications.
 
-the goal is to prepare several different simple showcases for node.js based backend frameworks such as Express.js, Fastify, Meteor.js, Koa.js, Hapi.js, Feathers.js and NestJS (using both Express.js and Fastify).
+the goal is to prepare several different simple showcases for node.js based backend frameworks such as
+
+- Express.js
+- Fastify
+- Koa.js
+- Hapi.js
+- Sails.js
+- Feathers.js
+- LoopBack
+- Meteor.js
+- NestJS
+- TypeORM
+- ActionHero
+- Serverless Framework
+- AdonisJS
 
 These frameworks are to be compared in terms of the following criterea:
 
@@ -15,3 +29,13 @@ These frameworks are to be compared in terms of the following criterea:
 8. Development and Deployment (Development Tools, Deployment Options)
 9. Use Cases and Suitability (Target Applications, Case Studies and References)
 10. Licensing and Cost (License, Cost)
+
+The showcases themselves are suppposed to contain most common features, such as:
+
+- Database Access
+- API routes for CRUD operations
+- Loading of information through environment files
+- Testing
+- Error handling & logging
+- Security features (HTTPS (TLS), Authentication, HTTP header optimization)
+- TypeScript support
