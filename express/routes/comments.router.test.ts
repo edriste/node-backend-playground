@@ -1,17 +1,17 @@
 import request from "supertest";
 import app from "../app";
 import {
-  connectToDatabase,
-  disconnectFromDatabase,
+  getCommentsCollection,
+  disconnectFromClient,
 } from "../services/database.service";
 
 describe("CommentsRouter", () => {
   // connect to database
   beforeAll(async () => {
-    await connectToDatabase();
+    await getCommentsCollection();
   });
   afterAll(async () => {
-    await disconnectFromDatabase();
+    await disconnectFromClient();
   });
   describe("When all comments are requested", () => {
     it("Returns a status code 200", () => {

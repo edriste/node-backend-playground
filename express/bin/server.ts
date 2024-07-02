@@ -1,47 +1,48 @@
 #!/usr/bin/env node
 
 //Module dependencies.
-import fs from "fs";
 import dotenv from "dotenv";
 import http from "http";
-/** import https from "https"; */
+/**
+ * import https from "https";
+ * import fs from "fs";
+ */
 import debugModule from "debug";
 import app from "../app";
-import { connectToDatabase } from "../services/database.service";
+import { connectToClient } from "../services/database.service";
+import logger from "../services/logging.service";
 
-// get configuration from .env file
+// Load environment variables
 dotenv.config();
 
-// UNCOMMENT THESE LINES IF YOU WANT TO ENABLE HTTPS
-/**
- * const privateKey = fs.readFileSync('./https/localhost-key.pem');
- * const certificate = fs.readFileSync('./https/localhost.pem');
- * const credentials = {key: privateKey, cert: certificate};
- */
-
+// Enable debugging
 const debug = debugModule("express:server");
 
 //Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
+// Create HTTP server (enclose in comment if you want to use HTTPS instead)
 const server = http.createServer(app);
 
-// initialize database connection
-connectToDatabase()
+// UNCOMMENT THESE LINES IF YOU WANT TO ENABLE HTTPS
+/**
+ * const privateKey = fs.readFileSync('./https/localhost-key.pem');
+ * const certificate = fs.readFileSync('./https/localhost.pem');
+ * const credentials = {key: privateKey, cert: certificate};
+ * const server = https.createServer(credentials, app);
+ */
+
+// Initialize MongoDB client connection and start the server
+connectToClient()
   .then(() => {
-    //Create HTTP server.
-
-    //Create HTTPS server.
-    /** const server = https.createServer(credentials, app); */
-
     //Listen on provided port, on all network interfaces.
     server.listen(port);
     server.on("error", onError);
     server.on("listening", onListening);
+    logger.info(`Server is running on port ${port}`);
   })
-  .catch((error: Error) => {
-    console.error("Database connection failed", error);
+  .catch(() => {
     process.exit();
   });
 
@@ -63,7 +64,6 @@ function normalizePort(val: string): number | string | false {
 }
 
 //Event listener for HTTP server "error" event.
-
 function onError(error: NodeJS.ErrnoException): void {
   if (error.syscall !== "listen") {
     throw error;
@@ -87,7 +87,6 @@ function onError(error: NodeJS.ErrnoException): void {
 }
 
 //Event listener for HTTP server "listening" event.
-
 function onListening(): void {
   const addr = server.address();
   const bind =

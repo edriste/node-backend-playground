@@ -7,7 +7,14 @@
   "scripts": {
     "prepare": "husky",
     "prettierApply": "npx prettier . --write",
-    "prettierCheck": "npx prettier . --check"
+    "prettierCheck": "npx prettier . --check",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts,js,json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",

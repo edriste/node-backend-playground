@@ -14,7 +14,7 @@ export default class Comment {
     email: string,
     movie_id: ObjectId,
     text: string,
-    date: Date
+    date: Date,
   ) {
     this._id = _id;
     this.name = name;

@@ -2,8 +2,12 @@
 
 import express, { Request, Response } from "express";
 import { ObjectId } from "mongodb";
-import { collections } from "../services/database.service";
+import {
+  collections,
+  getCommentsCollection,
+} from "../services/database.service";
 import Comment from "../models/comment";
+import * as mongoDB from "mongodb";
 
 // Global Config
 
@@ -14,11 +18,13 @@ commentsRouter.use(express.json());
 
 commentsRouter.get("/", async (_req: Request, res: Response) => {
   try {
-    const comments = (await collections.comments
-      ?.find({})
+    const commentsCollection: mongoDB.Collection =
+      await getCommentsCollection();
+    const commentsResponse = (await commentsCollection
+      .find({})
       .toArray()) as Comment[];
 
-    res.status(200).send(comments);
+    res.status(200).send(commentsResponse);
   } catch (error) {
     let errorMessage = "Could not get comments";
     if (error instanceof Error) {
